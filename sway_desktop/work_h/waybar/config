@@ -1,0 +1,141 @@
+[{
+	"layer": "bottom",
+		"margin": "0 0 0 0",
+		//"margin": "0 5 5 5",
+		"output": ["HDMI-A-1"],
+		"modules-left": ["sway/workspaces", "sway/mode"],
+		// "modules-right": ["network", "custom/separator", "pulseaudio",
+		//		      "custom/separator", "disk", "custom/separator", "disk#home", "custom/separator", "cpu", "custom/separator",
+		//                   "memory", "custom/separator", "clock", "tray"],
+		"network": {
+			"format": "{ifname}",
+			/*"format-wifi": "W: {essid} {ipaddr}/{cidr} ({signalStrength}%)",*/
+			"format-wifi": "W",
+			"format-ethernet": "E",
+			"format-disconnected": "",
+			"tooltip-format": "{essid}",
+			"tooltip-format-wifi": "{ifname} {essid} {ipaddr}/{cidr} ({signalStrength}%)",
+			"tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
+			"tooltip-format-disconnected": "",
+			"max-length": 50
+		},
+		"pulseaudio": {
+			"format": "♪: {volume}%",
+			"format-bluetooth": "♪ B: {volume}%",
+			"format-muted": "♪: muted",
+			"scroll-step": 1,
+			"on-click": "pavucontrol",
+			"max-length": 50
+		},
+		"disk#home": {
+			"interval": 30,
+			"format": "H: {free}",
+			"path": "/home/"
+		},
+		"disk": {
+			"interval": 30,
+			"format": "R: {free}",
+			"path": "/"
+		},
+		"memory": {
+			"interval": 30,
+			"format": "{avail:0.1f}G",
+			"tooltip-format": "RAM: {used:0.1f}/{total:0.1f}G\nSwap: {swapUsed:0.1f}/{swapTotal:0.1f}",
+		},
+		"clock": {
+			"format": "{:%d.%m.%Y %H:%M}"
+		},
+		"tray": {
+			"icon-size": 18,
+			"tooltip-format": "",
+		},
+		"height": 23,
+		"position": "bottom",
+		"custom/separator": {
+			"format": "|",
+			"interval": "once",
+			"tooltip": false
+		},
+		"cpu": {
+			"interval": 2,
+			"format": "{usage}%",
+			"max-length": 10
+		}
+},
+
+{
+	"layer": "bottom",
+	"margin": "0 0 0 0",
+	"output": ["eDP-1"],
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-right": ["network", "custom/separator", "pulseaudio",
+	"custom/separator", "battery", "custom/separator", "disk#home", "custom/separator", "cpu", "custom/separator",
+	"memory", "custom/separator", "clock", "custom/separator", "tray", "custom/separator"],
+	"network": {
+		"format": "{ifname}",
+		/*"format-wifi": "W: {essid} {ipaddr}/{cidr} ({signalStrength}%)",*/
+		"format-wifi": "W",
+		"format-ethernet": "E",
+		"format-disconnected": "",
+		"tooltip-format": "{essid}",
+		"tooltip-format-wifi": "{ifname} {essid} {ipaddr}/{cidr} ({signalStrength}%)",
+		"tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
+		"tooltip-format-disconnected": "",
+		"max-length": 50
+	},
+	"pulseaudio": {
+		"format": "♪: {volume}%",
+		"format-bluetooth": "♪ B: {volume}%",
+		"format-muted": "♪: muted",
+		"scroll-step": 1,
+		"on-click": "pavucontrol",
+		"max-length": 50
+	},
+	"disk#home": {
+		"interval": 30,
+		"format": "Space: {free}",
+		"path": "/"
+	},
+	"memory": {
+		"interval": 30,
+		"format": "{avail:0.1f}G",
+		"tooltip-format": "RAM: {used:0.1f}/{total:0.1f}G\nSwap: {swapUsed:0.1f}/{swapTotal:0.1f}",
+	},
+	"clock": {
+		"format": "{:%d.%m.%Y %H:%M}",
+		"tooltip-format": "{:      %B }\n<tt>{calendar}</tt>"
+	},
+	"tray": {
+		"icon-size": 18,
+		"tooltip-format": "",
+	},
+	"height": 23,
+	"position": "bottom",
+	"custom/separator": {
+		"format": " ",
+		"interval": "once",
+		"tooltip": false
+	},
+	"cpu": {
+		"interval": 2,
+		"format": "{usage}%",
+		"max-length": 10
+	},
+	"custom/pomodoro": {
+		"format": "суета..{}",
+		"max-length": 40,
+		"interval": "30",
+		"exec": "potato",
+		"exec-if": "pgrep potato",
+		"on-click": "killall -9 potato"
+	},
+	"battery": {
+		"interval": 60,
+		"format": "{capacity}% {icon}",
+		"format-icons": ["", "", "", "", ""],
+		"max-length": 25,
+		"format-fool": ""
+	}
+}]
+
+
